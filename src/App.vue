@@ -53,7 +53,7 @@ const actualGreeting = computed(() => {
 
 const MAX_NEGATIVE_ANSWERS_BEFORE_ERROR = 10;
 const NEGATIVE_ANSWERS_INTERVAL_FOR_SUCCESS = 5;
-const CHANCE_FOR_SUCCESS_MESSAGE = 0.30; // 25% шанс на успешное сообщение
+const CHANCE_FOR_SUCCESS_MESSAGE = 0.10; // 25% шанс на успешное сообщение
 
 watch(negativeAnswers, (newNegativeAnswers) => {
   if (newNegativeAnswers > MAX_NEGATIVE_ANSWERS_BEFORE_ERROR) {
