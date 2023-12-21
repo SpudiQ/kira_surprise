@@ -1,7 +1,7 @@
 <template>
   <div v-if="currentQuestionNumber < questions.length" class="container">
     <img :src="currentQuestion.gif" alt="cutie gif">
-    <p>{{ actualGreeting }}</p>
+    <p v-if="currentQuestionNumber === 0">{{ actualGreeting }}</p>
     <p v-html="currentQuestion.question"></p>
     <div class="d-flex gap-4">
       <CutePinkButton label="Да" @click="nextQuestion"/>
