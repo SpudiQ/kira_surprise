@@ -1,0 +1,25 @@
+.btn__pink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 52px;
+  padding: 10px 20px;
+  border-radius: 20px;
+
+  background-color: #E9CDE0;
+  border: 1px solid white;
+
+  font-family: RubikBubbles;
+  font-size: 24px;
+
+  transition: left 0.5s ease, top 0.5s ease;
+}
+
+.btn__pink, .btn__pink label {
+  cursor: pointer;
+}
+
+.btn__pink:hover { 
+  opacity: 0.6;
+}

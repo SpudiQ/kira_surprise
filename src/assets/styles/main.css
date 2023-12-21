@@ -1,0 +1,68 @@
+@import 'fonts';
+@import 'ui';
+
+:root {
+  font-family: Pacifico;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #E9CDE0;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  padding: 0 10px;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  gap: 20px;
+
+  text-align: center;
+}
+
+.container img {
+  width: 120px;
+  height: 120px;
+}
+
+.move-fade-enter-active,
+.move-fade-leave-active {
+  transition: opacity 0.4s ease, left 0.5s ease, top 0.5s ease;
+}
+
+.move-fade-enter-from,
+.move-fade-leave-to {
+  opacity: 0;
+}
+
+/* utils */
+
+.d-flex {
+  display: flex;
+}
+
+.gap-4 {
+  gap: 20px;
+}
+
+.hidden {
+  display: none;
+}
