@@ -1,4 +1,5 @@
 <template>
+  <!-- <FollowingDoggy/> -->
   <div v-if="currentQuestionNumber < questions.length" class="container">
     <img :src="currentQuestion.gif" alt="cutie gif">
     <p v-if="currentQuestionNumber === 0">{{ actualGreeting }}</p>
@@ -17,6 +18,7 @@
 <script setup>
 import { computed, ref, watch } from 'vue';
 import CutePinkButton from './components/CutePinkButton.vue';
+// import FollowingDoggy from './components/FollowingDoggy.vue';
 import CutePinkButtonRunner from './components/CutePinkButtonRunner.vue';
 import { useToast } from 'vue-toast-notification';
 import { QUESTIONS } from './static/questions';
