@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'RubikBubbles';
   src: 
-  url('../fonts/RubikBubbles/RubikBubbles-Regular.ttf') format('truetype');
+  url('@/assets/fonts/RubikBubbles/RubikBubbles-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -9,7 +9,7 @@
 @font-face {
   font-family: 'Pacifico';
   src: 
-  url('../fonts/Pacifico/Pacifico-Regular.ttf') format('truetype');
+  url('@/assets/fonts/Pacifico/Pacifico-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

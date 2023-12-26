@@ -1,9 +1,21 @@
 import { createApp } from 'vue'
-import './assets/styles/main.css'
+import { createPinia } from 'pinia'
+import App from './App.vue'
+
+// plugins
+import router from './router'
 import ToastPlugin from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-bootstrap.css';
 
-import App from './App.vue'
+// styles
+import './assets/styles/css/main.css'
+import './assets/styles/scss/main.scss'
 
 const app = createApp(App);
-app.use(ToastPlugin).mount('#app')
+const pinia = createPinia();
+
+app
+.use(pinia)
+.use(router)
+.use(ToastPlugin)
+.mount('#app')
