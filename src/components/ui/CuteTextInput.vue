@@ -1,12 +1,12 @@
 <template>
   <div class="input__pink">
-    <input v-model="inputText" type="text" :placeholder="placeholder"/>
+    <input v-model="internalValue" type="text" :placeholder="placeholder"/>
     <button @click="onSubmit" type="submit"><i class="icon ion-android-arrow-forward"></i></button>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue';
 
 defineProps({
   placeholder: {
@@ -14,12 +14,21 @@ defineProps({
   }
 })
 
-const emit = defineEmits(['onSubmit'])
+const emit = defineEmits(['update:modelValue', 'onSubmit'])
 
-const inputText = ref('')
+const internalValue = ref('');
 
 const onSubmit = () => {
-  emit('onSubmit', inputText.value);
-  inputText.value = '';
-}
+  emit('update:modelValue', internalValue.value);
+  emit('onSubmit')
+  internalValue.value = '';
+};
+
+const modelValue = computed({
+  get: () => internalValue.value,
+  set: (value) => {
+    internalValue.value = value;
+    emit('update:modelValue', value);
+  }
+});
 </script>

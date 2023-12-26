@@ -13,7 +13,7 @@
       <CutePinkButton label="Да" @click="nextQuestion(true)"/>
       <CutePinkButtonRunner label="Нет" @click="negativeAnswers++"/>
     </div>
-    <CuteTextInput @onSubmit="nextQuestion" v-else/>
+    <CuteTextInput v-model="inputText" @onSubmit="nextQuestion" v-else/>
   </div>
   <div class="container" v-else>
     <p>Оп-оп, тестик пройден, но пока очень сыро все, зато баботает</p>
@@ -36,6 +36,7 @@ const isGettingData = ref(false)
 const test = ref(null)
 const route = useRoute()
 const answers = ref([])
+const inputText = ref('')
 
 async function getTest() {
   isGettingData.value = true
@@ -66,17 +67,22 @@ const currentQuestionNumber = ref(0)
 const isEnded = ref(false)
 
 const nextQuestion = async (answer) => {
+  console.log('Submitted')
+
   const nonReactiveCurrentQuestion = {...currentQuestion.value};
 
   answers.value.push({
     ...nonReactiveCurrentQuestion,
-    answer: answer,
+    answer: answer ? answer : inputText.value,
     negativeAnswers: negativeAnswers.value
   });
 
   currentQuestionNumber.value++;
+  inputText.value = '';
 
   if(currentQuestionNumber.value >= test.value.questions.length) {
+    isGettingData.value = true
+
     try {
       const { data, error } = await supabase
         .from('answers')
@@ -97,6 +103,8 @@ const nextQuestion = async (answer) => {
         type: 'error',
         position: 'top',
       });
+    } finally {
+      isGettingData.value = false
     }
 
     isEnded.value = true
