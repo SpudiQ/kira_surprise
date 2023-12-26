@@ -16,9 +16,10 @@ defineProps({
 
 const emit = defineEmits(['onSubmit'])
 
-const inputText = ref()
+const inputText = ref('')
 
 const onSubmit = () => {
-  emit('onSubmit', inputText.value)
+  emit('onSubmit', inputText.value);
+  inputText.value = '';
 }
 </script>
