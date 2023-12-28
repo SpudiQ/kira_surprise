@@ -16,7 +16,7 @@
     <CuteTextInput v-model="inputText" @onSubmit="nextQuestion" v-else/>
   </div>
   <div class="container" v-else>
-    <p>Оп-оп, тестик пройден, но пока очень сыро все, зато баботает</p>
+    <p v-html="test.ending"></p>
     <RouterLink to="/">Перейти на главную страницу >>></RouterLink>
   </div>
 </template>
