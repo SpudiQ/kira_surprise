@@ -24,8 +24,9 @@ async function getTests() {
   try {
     let { data } = await supabase
     .from('tests')
-    .select('*');
-
+    .select('*')
+    .order('id', { ascending: false });
+    
     tests.value = data
   } catch(e) {
     console.error(e)
