@@ -16,7 +16,7 @@
     <CuteTextInput v-model="inputText" @onSubmit="nextQuestion" v-else/>
   </div>
   <div class="container" v-else>
-    <p v-html="test.ending"></p>
+    <p v-html="test?.ending"></p>
     <RouterLink to="/">Перейти на главную страницу >>></RouterLink>
   </div>
 </template>
